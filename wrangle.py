@@ -172,36 +172,18 @@ def handle_nulls(df):
 # In[7]:
 
 
-def split(df, target_var):
+def split_data(df):
     '''
-    This function takes in the dataframe and target variable name as arguments and then
-    splits the dataframe into train (56%), validate (24%), & test (20%)
-    It will return a list containing the following dataframes: train (for exploration), 
-    X_train, X_validate, X_test, y_train, y_validate, y_test
+    take in a DataFrame and return train, validate, and test DataFrames.
+    return train, validate, test DataFrames.
     '''
-    # split df into train_validate (80%) and test (20%)
-    train_validate, test = train_test_split(df, test_size=.20, random_state=13)
-    # split train_validate into train(70% of 80% = 56%) and validate (30% of 80% = 24%)
-    train, validate = train_test_split(train_validate, test_size=.3, random_state=13)
-
-    # create X_train by dropping the target variable 
-    X_train = train.drop(columns=[target_var])
-    # create y_train by keeping only the target variable.
-    y_train = train[[target_var]]
-
-    # create X_validate by dropping the target variable 
-    X_validate = validate.drop(columns=[target_var])
-    # create y_validate by keeping only the target variable.
-    y_validate = validate[[target_var]]
-
-    # create X_test by dropping the target variable 
-    X_test = test.drop(columns=[target_var])
-    # create y_test by keeping only the target variable.
-    y_test = test[[target_var]]
-
-    partitions = [train, X_train, X_validate, X_test, y_train, y_validate, y_test]
-    return partitions
-
+    
+    train_validate, test = train_test_split(df, test_size=.2, random_state=123)
+    
+    train, validate = train_test_split(train_validate, 
+                                       test_size=.3, 
+                                       random_state=123)
+    return train, validate, test
 
 # In[8]:
 
