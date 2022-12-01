@@ -188,11 +188,38 @@ def split_data(df):
 # In[8]:
 
 
-def scale_and_concat(df):
-    scaled_array = scaler.transform(df[scaled_vars])
-    scaled_df = pd.DataFrame(scaled_array, columns=scaled_column_names, index=df.index.values)
-    return pd.concat((df, scaled_df), axis=1)
-
+def scale_data(train, 
+               validate, 
+               test, 
+               columns_to_scale=['logerror','bedrooms', 'bathrooms', 'tax_amount', 'sq_feet', 'lotsizesquarefeet', 'age', 'structure_dollar_per_sqft', 'land_dollar_per_sqft', 'acres', 'bath_bed_ratio', 'latitude', 'longitude'],
+               return_scaler=False):
+    '''
+    Scales the 3 data splits. 
+    Takes in train, validate, and test data splits and returns their scaled counterparts.
+    If return_scalar is True, the scaler object will be returned as well
+    '''
+    # make copies of our original data so we dont gronk up anything
+    train_scaled = train.copy()
+    validate_scaled = validate.copy()
+    test_scaled = test.copy()
+    #     make the thing
+    scaler = MinMaxScaler()
+    #     fit the thing
+    scaler.fit(train[columns_to_scale])
+    # applying the scaler:
+    train_scaled[columns_to_scale] = pd.DataFrame(scaler.transform(train[columns_to_scale]),
+                                                  columns=train[columns_to_scale].columns.values).set_index([train.index.values])
+                                                  
+    validate_scaled[columns_to_scale] = pd.DataFrame(scaler.transform(validate[columns_to_scale]),
+                                                  columns=validate[columns_to_scale].columns.values).set_index([validate.index.values])
+    
+    test_scaled[columns_to_scale] = pd.DataFrame(scaler.transform(test[columns_to_scale]),
+                                                 columns=test[columns_to_scale].columns.values).set_index([test.index.values])
+    
+    if return_scaler:
+        return scaler, train_scaled, validate_scaled, test_scaled
+    else:
+        return train_scaled, validate_scaled, test_scaled
 
 # In[9]:
 
