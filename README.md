@@ -4,8 +4,8 @@
 -Zillow wants insight on what is driving the errors in the Zestimates
 
 # Project Goal
-- Explore the effects of a variety of independent variables on the dependent variable, logerror, on Single Family Properties that had a transaction in 2017.
-- Use clustering to explore the interactions between the independent variables and logerror.  Construct a ML regression model that can help find what is driving errors in the Zestimates.
+- Explore the effects of calculatedfinishedsquarefeet and bath_bed_ratio on the dependent variable, logerror, on Single Family Properties that had a transaction in 2017.
+- Use clustering to explore the interactions.  Construct a ML regression model that can help find what is driving errors in the Zestimates.
 
 # Initial Thoughts
 My initial hypothesis is that drivers of logerror will likely be main features of most homes, such as the number of bedrooms, bathrooms, and square footage, age, and possibly tax values.
@@ -48,13 +48,10 @@ Alternative hypothesis- The independent variables that are explored, modeled, an
 
 | Feature | Definition |
 | :- | :- |
-| bedrooms | Integer, # of bedrooms in a property |
-| bathrooms | Decimal value, # of bathrooms in a property, including fractional bathrooms |
-| sq_feet | Integer, calculated total living area in a property |
-| tax_value | Integer, total tax assessed value of the parcel, our target variable |
-| year_built | Integer, the year a property was built |
-| tax_amount | Decimal value, total property tax assessed for that assessment year |
-| fips | Integer, Federal Information Processing Standard code (county) |
+| calculatedfinishedsquarefeet	| Calculated total finished living area of the home |
+| bath_bed_ratio | Ratio of bathrooms to bedrooms |
+| logerror | Zillow zestimate log error of sale price |
+
 
 # Steps to Reproduce
 1. Clone this repo
