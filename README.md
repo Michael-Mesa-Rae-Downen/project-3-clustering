@@ -22,11 +22,11 @@ My initial hypothesis is that drivers of logerror will likely be main features o
  
 - Explore data in search of drivers of logerror using cluster on a combination of features and answer the following:
 
-> Is bath_bed_ratio related to logerror?
+> Is the number of bathrooms related to logerror?
 
-> Is sq_feet related to logerror?
+> Is the number of bedrooms related to logerror?
 
-> *******
+> Is the number of square feet related to logerror?
 
 > *******
 
@@ -47,7 +47,8 @@ My initial hypothesis is that drivers of logerror will likely be main features o
 | Feature | Definition |
 | :- | :- |
 | sq_feet	| Calculated total finished living area of the home |
-| bath_bed_ratio | Ratio of bathrooms to bedrooms |
+| bedrooms |  Number of bedrooms in home |
+| bedrooms |  Number of bedrooms in home |
 | logerror | Zillow zestimate log error of sale price |
 
 
