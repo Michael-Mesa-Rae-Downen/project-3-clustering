@@ -9,8 +9,6 @@
 
 # Initial Thoughts
 My initial hypothesis is that drivers of logerror will likely be main features of most homes, such as the number of bedrooms, bathrooms, and square footage, age, and possibly tax values.
-Null hypothesis- The independent variables that are explored, modeled, and tested will not be drivers of logerror.
-Alternative hypothesis- The independent variables that are explored, modeled, and tested will be drivers of logerror.
 
 # Plan
 
@@ -20,17 +18,17 @@ Alternative hypothesis- The independent variables that are explored, modeled, an
 
 - Split and scale the data.
 
-- Use statistical tests and visualizations when explore the data to find drivers or factors that might influence logerror.
+- Use statistical tests and visualizations when exploring the data to find drivers or factors that might influence logerror.
  
 - Explore data in search of drivers of logerror using cluster on a combination of features and answer the following:
 
-> Are the number of bedrooms related to logerror?
+> Is the number of bathrooms related to logerror?
 
-> Are the number of bathrooms related to logerror?
+> Is the number of bedrooms related to logerror?
 
-> Is square footage related to logerror?
+> Is the number of square feet related to logerror?
 
-> Is tax value of actual structure or lot related to logerror?
+> *******
 
 - Based on the exploration and clustering, develop a regression model that will help identify drivers of logerror.
 
@@ -48,8 +46,9 @@ Alternative hypothesis- The independent variables that are explored, modeled, an
 
 | Feature | Definition |
 | :- | :- |
-| calculatedfinishedsquarefeet	| Calculated total finished living area of the home |
-| bath_bed_ratio | Ratio of bathrooms to bedrooms |
+| sq_feet	| Calculated total finished living area of the home |
+| bedrooms |  Number of bedrooms in home |
+| bedrooms |  Number of bedrooms in home |
 | logerror | Zillow zestimate log error of sale price |
 
 
@@ -61,23 +60,7 @@ Alternative hypothesis- The independent variables that are explored, modeled, an
 
 # Takewaways and Conclusions
 
-- There is a positive correlation between the number of bedrooms and tax value of a property.
-
-
-- There is a positive correlation between the number of bathrooms and tax value of a property.
-
-
-- There is a positive correlation between the amount of square footage and tax value of a property.
-
-
-- There is an uneven distribution of properties in the Los Angeles County, Orange County, an Ventura County.
-
+- 
 # Recommendations
 
-- Continue to focus on the number of bedrooms, bathrooms, and square footage of homes as drivers of tax value.
-
-
-- Evaluate the tax value of properties when properties are separated into their respective counties.
-
-
-- Create a model for each county that had properties with a transaction.
+- 
