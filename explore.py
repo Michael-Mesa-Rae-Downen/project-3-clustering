@@ -149,7 +149,7 @@ def assign_clusters(df, kmeans, cluster_vars, cluster_name, centroid_df):
         return df
 
 
-# In[11]:
+# In[15]:
 
 
 def get_train_clusters():
@@ -161,7 +161,7 @@ def get_train_clusters():
     cluster_name = 'interior_cluster_k7'
     k_range = range(2,20)
     
-    kmeans = create_clusters(X_train_scaled, 7, cluster_vars)
+    kmeans = create_clusters(X_train_scaled, cluster_vars, k=7)
     
     centroid_df = get_centroids(kmeans, cluster_vars, cluster_name)
     
