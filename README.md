@@ -28,7 +28,7 @@ My initial hypothesis is that drivers of logerror will likely be main features o
 
 > Is the number of square feet related to logerror?
 
-> *******
+> Is longitude related to logerror?
 
 - Based on the exploration and clustering, develop a regression model that will help identify drivers of logerror.
 
