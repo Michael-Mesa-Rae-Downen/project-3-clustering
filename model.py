@@ -1,5 +1,4 @@
 # importing of all needed libraries and modules.  
-%matplotlib inline
 from math import sqrt
 from pathlib import Path
 from scipy import stats
@@ -234,6 +233,15 @@ def tweedie_viz():
     plt.legend()
     plt.show()    
 
+def tweedie_viz2():
+    plt.figure(figsize=(16,8))
+    #plt.hist(y_validate.logerror, color='green', alpha=.5, label="Absolute Value Log Error")
+    plt.hist(y_validate.logerror_pred_glm, color='blue', alpha=.5, label="Validate")
+    plt.xlabel("Log Error")
+    plt.ylabel("Homes")
+    plt.title("Comparing the Distribution of Absolute Value Log Error on Tweedie Model")
+    plt.legend()
+    plt.show()
 
 def r2_score():
     evs = explained_variance_score(y_train.logerror, y_train.logerror_pred_lm)
@@ -260,10 +268,10 @@ def ols_test():
 def ols_test_viz():
     plt.figure(figsize=(16,8))
     plt.hist(y_validate.logerror, color='green', alpha=.5, label="Absolute Value Log Error")
-    plt.hist(y_test.logerror_pred_lm, color='red', alpha=.5, label="Test")
+    plt.hist(y_test.logerror_pred_lm, color='yellow', alpha=.5, label="Test")
     plt.xlabel("Log Error")
     plt.ylabel("Homes")
-    plt.title("Comparing the Distribution of Absolute Value Log Error to Predicted")
+    plt.title("Comparing the Distribution of Absolute Value Log Error to OLS Test Data")
     plt.legend()
     plt.show()    
     
@@ -291,7 +299,15 @@ def predict_viz():
     plt.legend()
     plt.show()  
     
-    
-    
-    
-    
+ # compare the models    
+def compare_viz():
+    plt.figure(figsize=(16,8))
+    plt.hist(y_validate.logerror_pred_lm, color='blue', alpha=.5, label="OLS")
+    plt.hist(y_validate.logerror_pred_lm2, color='green', alpha=.5, label="Polynomial")
+    plt.hist(y_validate.logerror_pred_lars, color='yellow', alpha=.5, label="Lasso Lars")
+    plt.hist(y_validate.logerror_pred_glm, color='pink', alpha=.5, label="Tweedie")
+    plt.xlabel("Models")
+    plt.ylabel("Homes")
+    plt.title("Comparing the Models of Absolute Value Log Error")
+    plt.legend()
+    plt.show()

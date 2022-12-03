@@ -28,7 +28,7 @@ My initial hypothesis is that drivers of logerror will likely be main features o
 
 > Is the number of square feet related to logerror?
 
-> Is longitude related to logerror?
+> Will the clusters help in determining drivers related to log error?
 
 - Based on the exploration and clustering, develop a regression model that will help identify drivers of logerror.
 
@@ -40,7 +40,7 @@ My initial hypothesis is that drivers of logerror will likely be main features o
 
 > Evaluation of best model on test data
 
-- Draw conlcusions
+- Draw conclusions
 
 # Data Dictionary
 
@@ -59,8 +59,24 @@ My initial hypothesis is that drivers of logerror will likely be main features o
 4. Run notebook
 
 # Takewaways and Conclusions
+Exploration Summary¶
+    'bedrooms' was found to be a driver of 'logerror'
+    'bathrooms' was found to be a driver of 'logerror'
+    'sq_feet' was found to be a driver of 'logerror'
+    Observations in cluster 3 was found to be a driver of 'logerror'
 
-- 
-# Recommendations
+Modeling Summary
+    Using the OLS, Polynomial (degree 2), Lasso Lars, and Tweedie regression models help to determine the best model to use.
+    Although the variance was small, the best model in this case was to use the OLS model.
+    Comparing them visually did not help in determining the best model.
+    Comparing them against the RMSE was in our best interest.
+ 
+# Recommendations and Next Steps
+Recommendations¶
+      We should reconsider how we are approaching this problem.
+      Further explore our data for feature selection that will yield more substantial results.
 
-- 
+Next Steps
+    Explore our data with a new approach.
+    Possibly focus more on the location of properties while keeping property size in consideration.
+
