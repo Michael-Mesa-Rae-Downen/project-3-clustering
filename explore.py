@@ -149,7 +149,7 @@ def assign_clusters(df, kmeans, cluster_vars, cluster_name, centroid_df):
         return df
 
 
-# In[15]:
+# In[11]:
 
 
 def get_train_clusters():
@@ -241,4 +241,53 @@ def get_test_pred():
     #X_train = pd.concat([X_train, dummy_df['is_cluster_3_k7']], axis=1)
     
     return X_test_scaled
+
+
+# In[47]:
+
+
+def get_cluster_3_ttest(X_train_scaled):
+    
+    ttest_df = pd.concat([train.logerror, X_train_scaled.is_cluster_3_k7], axis=1)
+    
+    t, p = stats.ttest_1samp(ttest_df[ttest_df['is_cluster_3_k7'] == 1].logerror.abs(), ttest_df.logerror.abs().mean())
+    print(f't     = {t:.4f}')
+    print(f'p     = {p:.4f}')
+    #return t, pval
+
+
+# In[48]:
+
+
+def get_bed_log_corr():
+    
+    y = train.logerror
+    
+    corr, p = stats.pearsonr(X_train_scaled.bedrooms, y)
+    print(f'corr  = {corr:.4f}')
+    print(f'p     = {p:.4f}')
+
+
+# In[49]:
+
+
+def get_bath_log_corr():
+    
+    y = train.logerror  
+    
+    corr, p = stats.pearsonr(X_train_scaled.bathrooms, y)
+    print(f'corr  = {corr:.4f}')
+    print(f'p     = {p:.4f}')
+
+
+# In[50]:
+
+
+def get_sq_feet_log_corr():
+    
+    y = train.logerror
+    
+    corr, p = stats.pearsonr(X_train_scaled.sq_feet, y)
+    print(f'corr  = {corr:.4f}')
+    print(f'p     = {p:.4f}')
 
